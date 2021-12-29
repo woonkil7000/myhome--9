@@ -54,9 +54,9 @@
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="board : ${boards}">
-                    <td th:text="${board.id}">Mark</td>
-                    <td><a th:text="${board.title}" th:href="@{/board/form(id=${board.id})}">Otto</a></td>
+                <tr th:each="board, i : ${boards}">
+                    <td th:text="${i.index+1+(boards.pageable.pageNumber)*10}">순번 페이지 당 10개 출력인 경우</td>
+                    <td><a th:text="${board.title}" th:href="@{/board/form(id=${board.id})}">글제목</a></td>
                     <td>홍길동</td>
                 </tr>
             </tbody>
